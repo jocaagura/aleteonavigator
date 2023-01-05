@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/detail_card_widget.dart';
+import 'detail_page.dart';
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -15,8 +18,17 @@ class MyHomePage extends StatelessWidget {
                 subtitle: Text('Tambien usaremos Navigator 2.0'),
               ),
               for (int i = 1; i < 7; i++)
-                Card(
-                  child: Image.asset('assets/cat$i.png'),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailsPage(
+                            imageIndex: i,
+                          ),
+                        ));
+                  },
+                  child: DetailCardWidget(imageIndex: i),
                 ),
             ],
           ),
