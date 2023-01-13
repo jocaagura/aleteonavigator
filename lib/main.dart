@@ -1,3 +1,4 @@
+import 'package:aleteonavigator/ui/pages/details_name_page.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/pages/my_home_page.dart';
@@ -14,10 +15,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter demo navigator',
+      routes: {
+        MyHomePage.initialRouteName: (context) => const MyHomePage(),
+        DetailsNamedPage.pageName: (context) => const DetailsNamedPage()
+      },
+      initialRoute: MyHomePage.initialRouteName,
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const MyHomePage(),
     );
   }
 }
