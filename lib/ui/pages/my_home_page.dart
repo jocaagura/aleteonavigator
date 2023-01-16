@@ -1,4 +1,4 @@
-import 'package:aleteonavigator/ui/pages/detail_page.dart';
+import 'package:aleteonavigator/main.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/detail_card_widget.dart';
@@ -15,18 +15,15 @@ class MyHomePage extends StatelessWidget {
           child: Column(
             children: [
               const ListTile(
-                title: Text('Ejemplo usando navigator 1.0'),
-                subtitle: Text('Tambien usaremos Navigator 2.0'),
+                title: Text('Ejemplo usando navigator 2.0'),
+                subtitle: Text('Aqui ya no usaremos Navigator 1.0'),
               ),
               for (int i = 1; i < 7; i++)
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailsPage(imageIndex: i),
-                      ),
-                    );
+                    context
+                        .findAncestorStateOfType<MyAppState>()
+                        ?.setImageIndex(i);
                     //Navigator.pushNamed(
                     //  context,
                     //  DetailsNamedPage.pageName,
