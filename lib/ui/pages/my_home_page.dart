@@ -1,5 +1,4 @@
-import 'package:aleteonavigator/entities/image_index_entity.dart';
-import 'package:aleteonavigator/ui/pages/details_name_page.dart';
+import 'package:aleteonavigator/ui/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/detail_card_widget.dart';
@@ -22,11 +21,17 @@ class MyHomePage extends StatelessWidget {
               for (int i = 1; i < 7; i++)
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(
+                    Navigator.push(
                       context,
-                      DetailsNamedPage.pageName,
-                      arguments: ImageIndexArgument(indexImage: i),
+                      MaterialPageRoute(
+                        builder: (context) => DetailsPage(imageIndex: i),
+                      ),
                     );
+                    //Navigator.pushNamed(
+                    //  context,
+                    //  DetailsNamedPage.pageName,
+                    //  arguments: ImageIndexArgument(indexImage: i),
+                    //);
                   },
                   child: DetailCardWidget(imageIndex: i),
                 ),

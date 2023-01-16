@@ -13,7 +13,9 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColorDark,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Usaste Nav 1.0 desde Nav 2.0'),
+      ),
       body: Center(
         child: DetailCardWidget(
           imageIndex: imageIndex.clamp(1, 6),
