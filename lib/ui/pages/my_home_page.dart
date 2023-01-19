@@ -1,7 +1,8 @@
-import 'package:aleteonavigator/main.dart';
 import 'package:flutter/material.dart';
 
+import '../navigator/my_navigator_widget.dart';
 import '../widgets/detail_card_widget.dart';
+import 'detail_from_url_page.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -21,9 +22,13 @@ class MyHomePage extends StatelessWidget {
               for (int i = 1; i < 7; i++)
                 InkWell(
                   onTap: () {
-                    context
-                        .findAncestorStateOfType<MyAppState>()
-                        ?.setImageIndex(i);
+                    final myRouterDelegate = context
+                        .findAncestorStateOfType<MyNavigatorWidgetState>()
+                        ?.myRouterDelegate;
+
+                    myRouterDelegate?.setNewRoutePath(
+                      Uri.parse('${DetailFromUrlPage.routeName}$i'),
+                    );
                     //Navigator.pushNamed(
                     //  context,
                     //  DetailsNamedPage.pageName,
